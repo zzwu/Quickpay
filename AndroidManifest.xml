@@ -3,8 +3,13 @@
       package="com.got.pay.quick"
       android:versionCode="1"
       android:versionName="1.0.0">
+      
+    <uses-permission android:name="android.permission.SEND_SMS"/>  
+    
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".SMS"
+        <activity android:name=".QuickPayActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -14,9 +19,9 @@
                 
         <receiver android:name="com.got.pay.quick.SmsReceiver"> 
             <intent-filter> 
-                <action android:name=
-                    "android.provider.Telephony.SMS_RECEIVED" /> 
+                <action android:name= "android.provider.Telephony.SMS_RECEIVED" /> 
             </intent-filter> 
         </receiver>
     </application>
+    
 </manifest> 
