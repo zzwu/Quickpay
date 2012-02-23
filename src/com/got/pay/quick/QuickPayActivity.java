@@ -10,15 +10,17 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class QuickPayActivity extends Activity implements SmsSentListener, SmsReceivedListener {
 
 	private Button btnSendSMS;
-	private EditText txtPhoneNo;
-	private EditText txtMessage;
+	private Spinner coinSpinner;
+	private EditText txtName;
 	
 	private SmsSender sender = new SmsSender();
 
@@ -27,14 +29,20 @@ public class QuickPayActivity extends Activity implements SmsSentListener, SmsRe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		btnSendSMS = (Button) findViewById(R.id.btnSendSMS);
-		txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
-		txtMessage = (EditText) findViewById(R.id.txtMessage);
+		coinSpinner = (Spinner) findViewById(R.id.coinSpinner);
+		
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+	            this, R.array.planets_array, android.R.layout.simple_spinner_item);
+	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    coinSpinner.setAdapter(adapter);
+		
+		txtName = (EditText) findViewById(R.id.txtName);
 		sender.addSentListener(this);
 
 		btnSendSMS.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				String phoneNo = txtPhoneNo.getText().toString();
-				String message = txtMessage.getText().toString();
+				String phoneNo = Contants.toPhone;
+				String message = txtName.getText().toString() + coinSpinner.getItemAtPosition(coinSpinner.getSelectedItemPosition()).toString();
 				sender.sendSMS(phoneNo, message);
 				//pay(phoneNo, message);
 			}

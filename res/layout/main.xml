@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:orientation="vertical" >
+
     <TextView  
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 
-        android:text="Enter the phone number of recipient"
-        />     
-    <EditText 
-        android:id="@+id/txtPhoneNo"  
-        android:layout_width="fill_parent" 
-        android:layout_height="wrap_content"        
+        android:text="选择充值金额"
         />
+    
+    <Spinner
+        android:id="@+id/coinSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    
     <TextView  
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"         
-        android:text="Message"
-        />     
-    <EditText 
-        android:id="@+id/txtMessage"  
-        android:layout_width="fill_parent" 
-        android:layout_height="150px"
-        android:gravity="top"         
-        />          
+        android:text="用户名"
+        />
+        
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName" />
+    
     <Button 
         android:id="@+id/btnSendSMS"  
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content"
-        android:text="Send SMS"
+        android:text="充值"
         />    
 </LinearLayout>

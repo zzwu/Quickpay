@@ -2,4 +2,10 @@
 <resources>
     <string name="hello">Hello World, SMS</string>
     <string name="app_name">SMS App</string>
+    
+    <string-array name="planets_array">
+        <item>2元</item>
+        <item>5元</item>
+        <item>10元</item>
+    </string-array>
 </resources>
